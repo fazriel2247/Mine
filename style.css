@@ -1,0 +1,996 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0f1420;
+    color: #f4efe6;
+    overflow-x: hidden;
+    transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+/* =========================================
+   TOP NAVBAR (SEPERTI REFERENSI)
+   ========================================= */
+.top-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 36px;
+    background: rgba(15, 20, 32, 0.72);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background 0.5s ease, border-color 0.5s ease;
+}
+
+.nav-brand {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.55rem;
+    color: #f4efe6;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-brand span {
+    font-size: 1.7rem;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-item {
+    padding: 8px 16px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.nav-item:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-item.active {
+    background: linear-gradient(135deg, #e87a9f, #d95d87);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(232, 122, 159, 0.35);
+}
+
+.theme-btn {
+    padding: 8px 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.05em;
+    color: #f4efe6;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(244, 239, 230, 0.3);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    background: #f4efe6;
+    color: #161b26;
+}
+
+/* =========================================
+   BAGIAN 1: HERO (HALAMAN DEPAN)
+   ========================================= */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.dark-bg {
+    background-image: 
+        linear-gradient(rgba(10, 14, 24, 0.35), rgba(10, 14, 24, 0.55)),
+        url('dark-bg.png');
+    opacity: 1;
+    z-index: -2;
+}
+
+.light-bg {
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.45)),
+        url('light-bg.png');
+    opacity: 0;
+    z-index: -1;
+}
+
+body.light-mode .light-bg {
+    opacity: 1;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.couple-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3.6rem, 8vw, 6.2rem);
+    font-weight: 400;
+    color: #f4efe6;
+    line-height: 1.05;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.55);
+    transition: color 0.6s ease;
+}
+
+.subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: #f4efe6;
+    margin-top: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    transition: color 0.6s ease;
+}
+
+.btn-rsvp {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 14px 28px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    color: #f4efe6;
+    text-decoration: none;
+    border: 1px solid rgba(244, 239, 230, 0.8);
+    background-color: rgba(15, 20, 32, 0.35);
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+.btn-rsvp:hover {
+    background-color: #f4efe6;
+    color: #161b26;
+}
+
+.hero-footer {
+    position: absolute;
+    bottom: 28px;
+    left: 44px;
+    right: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    color: #f4efe6;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* =========================================
+   BAGIAN 2: PROFIL & GALERI
+   ========================================= */
+.portfolio-wrapper {
+    background-color: #0f1420;
+    color: #e8ecf4;
+    transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+.profile-banner {
+    background: linear-gradient(135deg, #161d2e 0%, #1d2438 100%);
+    padding: 80px 24px 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background 0.6s ease;
+}
+
+.profile-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.profile-photo-wrap {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.profile-photo {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 28px;
+    background-color: #242d42;
+    border: 3px solid rgba(232, 122, 159, 0.45);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.deco-heart {
+    position: absolute;
+    top: 10px;
+    left: -28px;
+    font-size: 1.3rem;
+    color: #e87a9f;
+}
+
+.profile-info {
+    flex: 1;
+    min-width: 280px;
+}
+
+.hello-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #f28fb0;
+    background: rgba(232, 122, 159, 0.15);
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.intro-title {
+    font-size: clamp(2.1rem, 4vw, 2.9rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+}
+
+.highlight-name { color: #e87a9f; }
+.title-heart { font-weight: 400; color: #e87a9f; font-size: 2rem; }
+
+.intro-desc {
+    font-size: 0.96rem;
+    line-height: 1.7;
+    color: #aeb8cc;
+    max-width: 520px;
+    margin-bottom: 22px;
+}
+
+.surprise-btn {
+    padding: 11px 22px;
+    font-family: inherit;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #e87a9f, #d95d87);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(232, 122, 159, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.surprise-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(232, 122, 159, 0.5);
+}
+
+.profile-note {
+    align-self: flex-end;
+    font-size: 0.92rem;
+    color: #aeb8cc;
+    transform: rotate(-6deg);
+    padding-bottom: 12px;
+}
+
+/* Galeri Foto */
+.gallery-section {
+    padding: 40px 24px 80px;
+}
+
+.gallery-container {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.gallery-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 18px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    background: #1a2234;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.filter-btn:hover { border-color: #e87a9f; }
+.filter-btn.active { background: #e87a9f; color: #ffffff; border-color: #e87a9f; }
+
+.search-box {
+    position: relative;
+    width: 240px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 9px 14px 9px 36px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    color: #f4efe6;
+    background: #1a2234;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    outline: none;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.photo-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.photo-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #1a2234;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    cursor: zoom-in;
+}
+
+.photo-card.tall { height: 360px; }
+.photo-card.short { height: 171px; }
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.photo-card:hover img { transform: scale(1.04); }
+
+.like-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(15, 20, 32, 0.5);
+    backdrop-filter: blur(4px);
+    color: #ffffff;
+    font-size: 1.05rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.like-btn.liked { color: #ff5c8a; }
+
+/* =========================================
+   BAGIAN 3: HALAMAN MUSIK (MY FAVORITE MUSIC)
+   ========================================= */
+.music-page {
+    min-height: 100vh;
+    padding: 100px 24px 80px;
+    background: radial-gradient(circle at top center, #1b2236 0%, #0f1420 75%);
+    border-top: 1px solid rgba(232, 122, 159, 0.18);
+    display: flex;
+    align-items: center;
+    transition: background 0.6s ease, color 0.6s ease;
+}
+
+.music-container {
+    max-width: 1120px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.music-header {
+    margin-bottom: 44px;
+}
+
+.top-heart {
+    font-size: 1.4rem;
+    color: #e87a9f;
+    margin-bottom: 4px;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.title-line {
+    width: 70px;
+    height: 1px;
+    background: rgba(232, 122, 159, 0.45);
+}
+
+.deco-side-heart {
+    color: #e87a9f;
+    font-size: 1.1rem;
+}
+
+.music-main-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    font-weight: 400;
+    color: #f4efe6;
+    text-shadow: 0 4px 20px rgba(232, 122, 159, 0.25);
+}
+
+.music-subtitle {
+    font-size: 0.95rem;
+    color: #aeb8cc;
+    margin-top: 6px;
+}
+
+/* Grid 2 Kolom Pemutar Utama + Playlist Kanan */
+.music-layout {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 28px;
+    align-items: stretch;
+    text-align: left;
+}
+
+/* Kartu Pemutar Utama (Dengan Efek Membesar saat Lagu Dipilih) */
+.now-playing-card {
+    background: rgba(26, 34, 54, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 26px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.5s ease;
+}
+
+/* Animasi Membesar Halus ketika Lagu dari Kanan Dipilih */
+.now-playing-card.pop-zoom {
+    animation: cardZoomPop 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes cardZoomPop {
+    0% { transform: scale(0.95); }
+    60% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+.album-cover-box {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.album-cover-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cover-heart {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+.player-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.player-top-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.player-song-title {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #f4efe6;
+    margin-bottom: 4px;
+}
+
+.player-song-artist {
+    font-size: 0.92rem;
+    color: #aeb8cc;
+}
+
+.player-fav-btn {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #aeb8cc;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.player-fav-btn.liked {
+    color: #e87a9f;
+    transform: scale(1.1);
+}
+
+/* Progress Bar */
+.progress-wrapper {
+    width: 100%;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    accent-color: #e87a9f;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.time-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: #aeb8cc;
+    margin-top: 6px;
+}
+
+/* Kontrol Tombol */
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.ctrl-btn {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ctrl-btn:hover {
+    opacity: 1;
+    transform: scale(1.12);
+}
+
+.ctrl-btn.active-mode {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px #e87a9f);
+}
+
+.play-main-btn {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #e87a9f, #d95d87);
+    color: #ffffff;
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(232, 122, 159, 0.45);
+    transition: transform 0.2s ease;
+}
+
+.play-main-btn:hover {
+    transform: scale(1.08);
+}
+
+/* Playlist Kanan (5 Lagu) */
+.playlist-card {
+    background: rgba(26, 34, 54, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 26px;
+    padding: 24px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+}
+
+.playlist-heading {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f4efe6;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.playlist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.playlist-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.playlist-item:hover {
+    background: rgba(232, 122, 159, 0.12);
+}
+
+.playlist-item.active {
+    background: linear-gradient(90deg, rgba(232, 122, 159, 0.28), rgba(232, 122, 159, 0.08));
+    border-color: rgba(232, 122, 159, 0.45);
+    transform: translateX(4px);
+}
+
+.pl-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.pl-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.pl-info h5 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #f4efe6;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pl-info span {
+    font-size: 0.78rem;
+    color: #aeb8cc;
+}
+
+/* Equalizer kecil di baris lagu aktif */
+.pl-eq {
+    display: none;
+    align-items: flex-end;
+    gap: 2px;
+    height: 14px;
+}
+
+.pl-eq.playing {
+    display: flex;
+}
+
+.pl-eq span {
+    width: 2.5px;
+    height: 4px;
+    background: #e87a9f;
+    border-radius: 2px;
+    animation: eqBounce 0.65s ease-in-out infinite alternate;
+}
+
+.pl-eq span:nth-child(2) { animation-delay: 0.2s; }
+.pl-eq span:nth-child(3) { animation-delay: 0.4s; }
+.pl-eq span:nth-child(4) { animation-delay: 0.15s; }
+
+@keyframes eqBounce {
+    0% { height: 3px; }
+    100% { height: 14px; }
+}
+
+.music-footer-quote {
+    margin-top: 42px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.65rem;
+    color: #aeb8cc;
+}
+
+/* Floating Hearts & Modals */
+.floating-heart {
+    position: fixed;
+    font-size: 1.1rem;
+    pointer-events: none;
+    z-index: 9999;
+    animation: floatHeartUp 1s ease-out forwards;
+}
+
+@keyframes floatHeartUp {
+    0% { opacity: 1; transform: translateY(0) scale(0.7); }
+    100% { opacity: 0; transform: translateY(-75px) scale(1.3); }
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 11, 18, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+    transition: opacity 0.35s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 86vh;
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    transform: scale(0.9);
+    transition: transform 0.35s ease;
+}
+
+.modal-overlay.active .lightbox-content { transform: scale(1); }
+
+.modal-close {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 2.4rem;
+    cursor: pointer;
+}
+
+.surprise-card {
+    position: relative;
+    max-width: 460px;
+    width: 100%;
+    background: #182032;
+    color: #f4efe6;
+    padding: 36px 30px;
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid rgba(232, 122, 159, 0.35);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.card-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.surprise-icon { font-size: 2.4rem; margin-bottom: 10px; }
+.surprise-title { font-size: 1.4rem; font-weight: 700; color: #e87a9f; margin-bottom: 14px; }
+.surprise-body { font-size: 0.95rem; line-height: 1.7; opacity: 0.92; margin-bottom: 18px; }
+.surprise-sign { display: block; font-size: 0.82rem; font-style: italic; color: #e87a9f; }
+
+.scroll-top-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #e87a9f;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(232, 122, 159, 0.45);
+    z-index: 90;
+}
+
+/* =========================================
+   LIGHT MODE UNTUK SEMUA BAGIAN TERMASUK MUSIK
+   ========================================= */
+body.light-mode .top-navbar {
+    background: rgba(255, 255, 255, 0.82);
+    border-bottom-color: rgba(22, 34, 56, 0.08);
+}
+
+body.light-mode .nav-brand { color: #2d3142; }
+body.light-mode .nav-item { color: #4a5060; }
+body.light-mode .nav-item.active { color: #ffffff; }
+
+body.light-mode .theme-btn {
+    color: #162238;
+    background: #f4f5f8;
+    border-color: rgba(22, 34, 56, 0.2);
+}
+
+body.light-mode .couple-name,
+body.light-mode .subtitle,
+body.light-mode .hero-footer {
+    color: #162238;
+    text-shadow: 0 2px 14px rgba(255, 255, 255, 0.85);
+}
+
+body.light-mode .btn-rsvp {
+    color: #162238;
+    border-color: #162238;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+body.light-mode .portfolio-wrapper {
+    background-color: #ffffff;
+    color: #2d3142;
+}
+
+body.light-mode .profile-banner {
+    background: linear-gradient(135deg, #fdf2f6 0%, #f5eef8 100%);
+    border-bottom: 1px solid #f0e4ea;
+}
+
+body.light-mode .intro-desc,
+body.light-mode .profile-note { color: #5c6274; }
+
+body.light-mode .filter-btn { color: #4a5060; background: #f4f5f8; }
+body.light-mode .filter-btn.active { background: #e87a9f; color: #ffffff; }
+body.light-mode .search-box input { color: #2d3142; background: #f8f9fb; border-color: #e5e7eb; }
+body.light-mode .photo-card { background-color: #f4f5f8; }
+
+/* Light Mode Halaman Musik */
+body.light-mode .music-page {
+    background: linear-gradient(135deg, #fdf2f6 0%, #f3edf9 100%);
+}
+
+body.light-mode .music-main-title { color: #2d3142; }
+body.light-mode .music-subtitle,
+body.light-mode .music-footer-quote { color: #5c6274; }
+
+body.light-mode .now-playing-card,
+body.light-mode .playlist-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: #f0e4ea;
+    box-shadow: 0 14px 35px rgba(232, 122, 159, 0.14);
+}
+
+body.light-mode .player-song-title,
+body.light-mode .playlist-heading,
+body.light-mode .pl-info h5 {
+    color: #2d3142;
+}
+
+body.light-mode .player-song-artist,
+body.light-mode .pl-info span,
+body.light-mode .time-row {
+    color: #6b7280;
+}
+
+body.light-mode .playlist-item {
+    background: #f9f6fa;
+}
+
+body.light-mode .surprise-card {
+    background: #ffffff;
+    color: #2d3142;
+}
+
+/* =========================================
+   RESPONSIF LAYAR TABLET & HP
+   ========================================= */
+@media (max-width: 960px) {
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    .music-layout { grid-template-columns: 1fr; }
+    .now-playing-card { flex-direction: column; text-align: center; }
+    .player-top-info { justify-content: center; }
+}
+
+@media (max-width: 720px) {
+    .top-navbar { padding: 12px 16px; flex-wrap: wrap; gap: 8px; }
+    .nav-links { order: 3; width: 100%; justify-content: center; overflow-x: auto; }
+    .nav-item { padding: 6px 12px; font-size: 0.78rem; }
+    .hero-footer { flex-direction: column; gap: 6px; left: 20px; right: 20px; text-align: center; }
+    .profile-container { flex-direction: column; text-align: center; }
+    .profile-note { align-self: center; transform: none; }
+    .photo-grid { grid-template-columns: 1fr; }
+    .search-box { width: 100%; }
+}

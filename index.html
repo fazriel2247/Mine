@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Tasya - Special Place</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Menghubungkan ke file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- =====================================
+         NAVBAR MELAYANG (SEPERTI REFERENSI)
+         ===================================== -->
+    <nav class="top-navbar">
+        <a href="#top" class="nav-brand">♡ <span>For Tasya</span> ♡</a>
+
+        <div class="nav-links">
+            <a href="#top" class="nav-item active" data-nav="top">🏠 Home</a>
+            <a href="#about-gallery" class="nav-item" data-nav="about-gallery">🖼️ Gallery</a>
+            <a href="#music-section" class="nav-item" data-nav="music-section">🎵 Music</a>
+            <button id="nav-message-btn" class="nav-item nav-msg-btn">✉️ Message</button>
+        </div>
+
+        <button id="theme-toggle" class="theme-btn" aria-label="Ganti Tema">
+            ☀️ Light Mode
+        </button>
+    </nav>
+
+    <!-- =====================================
+         BAGIAN 1: HERO (HALAMAN DEPAN)
+         ===================================== -->
+    <header id="top" class="hero">
+        <div class="hero-bg dark-bg"></div>
+        <div class="hero-bg light-bg"></div>
+
+        <div class="hero-content">
+            <h1 class="couple-name">For Tasya</h1>
+            <p class="subtitle">SPECIAL PLACE</p>
+            <a href="#about-gallery" class="btn-rsvp">EXPLORE GALLERY</a>
+        </div>
+
+        <div class="hero-footer">
+            <span class="event-date">GARUT, INDONESIA</span>
+            <span class="event-venue">CINTAKU</span>
+        </div>
+    </header>
+
+    <!-- =====================================
+         BAGIAN 2: PROFIL & GALERI FOTO
+         ===================================== -->
+    <main id="about-gallery" class="portfolio-wrapper">
+        
+        <!-- Banner Profil Atas -->
+        <section class="profile-banner">
+            <div class="profile-container">
+                <div class="profile-photo-wrap">
+                    <span class="deco-heart left">♡</span>
+                    <img src="profil.png" alt="Foto Tasya" class="profile-photo">
+                </div>
+
+                <div class="profile-info">
+                    <span class="hello-badge">♡ Hello!</span>
+                    <h2 class="intro-title">Tasya <span class="highlight-name">Zwita</span> <span class="title-heart">♡</span></h2>
+                    <p class="intro-desc">
+                        Pesan Buat Tasya.<br>
+                        Jangan pernah merasa sendirian ya, karena selama aku masih di sini, kamu selalu punya seseorang yang siap mendengarkan ceritamu, menemani hari-harimu, dan menyayangimu tanpa harus menjadi sempurna. ❤️
+                    </p>
+                    
+                    <div class="profile-actions">
+                        <button id="surprise-btn" class="surprise-btn">
+                            💌 Buka Pesan Rahasia
+                        </button>
+                    </div>
+                </div>
+
+                <div class="profile-note">
+                    <span>Thanks for visiting! :)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Filter & Grid Galeri Foto -->
+        <section class="gallery-section">
+            <div class="gallery-container">
+                <div class="gallery-controls">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="portrait">Portrait</button>
+                        <button class="filter-btn" data-filter="selfie">Selfie</button>
+                        <button class="filter-btn" data-filter="others">Others</button>
+                    </div>
+
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="photo-search" placeholder="Search photos...">
+                    </div>
+                </div>
+
+                <div class="photo-grid" id="photo-grid">
+                    <div class="photo-card tall" data-category="portrait" data-title="portrait 1">
+                        <img src="foto1.png" alt="Foto 1" loading="lazy">
+                        <button class="like-btn" aria-label="Suka">♡</button>
+                    </div>
+
+                    <div class="photo-card tall" data-category="selfie" data-title="selfie 1">
+                        <img src="foto2.png" alt="Foto 2" loading="lazy">
+                        <button class="like-btn" aria-label="Suka">♡</button>
+                    </div>
+
+                    <div class="photo-card tall" data-category="portrait" data-title="portrait 2">
+                        <img src="foto3.png" alt="Foto 3" loading="lazy">
+                        <button class="like-btn" aria-label="Suka">♡</button>
+                    </div>
+
+                    <div class="photo-stack">
+                        <div class="photo-card short" data-category="selfie" data-title="selfie 2">
+                            <img src="foto4.png" alt="Foto 4" loading="lazy">
+                            <button class="like-btn" aria-label="Suka">♡</button>
+                        </div>
+                        <div class="photo-card short" data-category="others" data-title="others 1">
+                            <img src="foto5.png" alt="Foto 5" loading="lazy">
+                            <button class="like-btn" aria-label="Suka">♡</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =====================================
+         BAGIAN 3: HALAMAN MUSIK (MY FAVORITE MUSIC)
+         ===================================== -->
+    <section id="music-section" class="music-page">
+        <div class="music-container">
+            
+            <!-- Judul Halaman Musik -->
+            <div class="music-header">
+                <div class="top-heart">♡</div>
+                <div class="title-row">
+                    <span class="deco-side-heart">♡</span>
+                    <span class="title-line"></span>
+                    <h2 class="music-main-title">Zona Music</h2>
+                    <span class="title-line"></span>
+                    <span class="deco-side-heart">♡</span>
+                </div>
+                <p class="music-subtitle">Lagu-lagu yang selalu menemani hari-harimu ♡</p>
+            </div>
+
+            <!-- Layout 2 Kolom: Pemutar Besar di Kiri/Tengah + Playlist 5 Lagu di Kanan -->
+            <div class="music-layout">
+                
+                <!-- Kartu Utama Pemutar (Membesar saat lagu dipilih) -->
+                <div id="now-playing-card" class="now-playing-card">
+                    <div class="album-cover-box">
+                        <img id="player-cover" src="cover1.png" alt="Album Cover">
+                        <span class="cover-heart">♡</span>
+                    </div>
+
+                    <div class="player-details">
+                        <div class="player-top-info">
+                            <div>
+                                <h3 id="player-title" class="player-song-title">Andai Bku Bisa</h3>
+                                <p id="player-artist" class="player-song-artist">--</p>
+                            </div>
+                            <button id="player-fav-btn" class="player-fav-btn liked" aria-label="Favorit">♥</button>
+                        </div>
+
+                        <!-- Progress Bar & Durasi -->
+                        <div class="progress-wrapper">
+                            <input type="range" id="progress-bar" class="progress-bar" value="0" min="0" max="100">
+                            <div class="time-row">
+                                <span id="current-time">00:00</span>
+                                <span id="total-duration">04:10</span>
+                            </div>
+                        </div>
+
+                        <!-- Tombol Kontrol Pemutar -->
+                        <div class="player-controls">
+                            <button id="shuffle-btn" class="ctrl-btn" title="Shuffle">🔀</button>
+                            <button id="prev-btn" class="ctrl-btn" title="Sebelumnya">⏮️</button>
+                            <button id="play-pause-btn" class="play-main-btn" title="Putar / Jeda">▶</button>
+                            <button id="next-btn" class="ctrl-btn" title="Selanjutnya">⏭️</button>
+                            <button id="repeat-btn" class="ctrl-btn" title="Ulangi">🔁</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kartu Playlist Favorit (5 Lagu di Kanan) -->
+                <div class="playlist-card">
+                    <h4 class="playlist-heading">🎵 Playlist Favorit</h4>
+                    <div id="playlist-items" class="playlist-items">
+                        <!-- Diisi otomatis oleh JavaScript dari daftar 5 lagu -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Musik -->
+            <p class="music-footer-quote">Coming soon♡</p>
+        </div>
+
+        <audio id="main-audio"></audio>
+    </section>
+
+    <!-- Tombol Kembali ke Atas -->
+    <a href="#top" class="scroll-top-btn" aria-label="Kembali ke Atas">↑</a>
+
+    <!-- =====================================
+         MODAL 1: PHOTO LIGHTBOX
+         ===================================== -->
+    <div id="lightbox" class="modal-overlay" aria-hidden="true">
+        <button id="lightbox-close" class="modal-close" aria-label="Tutup">&times;</button>
+        <img id="lightbox-img" src="" alt="Preview Foto" class="lightbox-content">
+    </div>
+
+    <!-- =====================================
+         MODAL 2: SURPRISE MESSAGE POP-UP
+         ===================================== -->
+    <div id="surprise-modal" class="modal-overlay" aria-hidden="true">
+        <div class="surprise-card">
+            <button id="surprise-close" class="card-close" aria-label="Tutup">&times;</button>
+            <div class="surprise-icon">💌</div>
+            <h3 class="surprise-title">Untuk Tasya Zwita ♡</h3>
+            <p class="surprise-body">
+                Terima kasih sudah hadir dan bikin hari-hari terasa jauh lebih berarti. Semoga setiap langkahmu selalu dimudahkan, senyummu nggak pernah hilang, dan semua hal baik selalu menyertaimu. I'm always proud of you! ✨
+            </p>
+            <span class="surprise-sign">— Dari seseorang yang selalu menyertaimu</span>
+        </div>
+    </div>
+
+    <!-- =====================================
+         SCRIPT INTERAKTIF LENGKAP
+         ===================================== -->
+    <script>
+        // 1. Dark / Light Mode Toggle
+        const themeBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeBtn.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            themeBtn.innerHTML = body.classList.contains('light-mode') 
+                ? '🌙 Dark Mode' 
+                : '☀️ Light Mode';
+        });
+
+        // 2. Navbar Active State saat di-klik / scroll
+        const navItems = document.querySelectorAll('.nav-links a.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navItems.forEach(n => n.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+
+        // 3. Filter Kategori Galeri
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const photoCards = document.querySelectorAll('.photo-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+                photoCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    card.style.display = (filter === 'all' || category === filter) ? 'block' : 'none';
+                });
+            });
+        });
+
+        // 4. Pencarian Foto
+        const searchInput = document.getElementById('photo-search');
+        searchInput.addEventListener('input', (e) => {
+            const keyword = e.target.value.toLowerCase();
+            photoCards.forEach(card => {
+                const title = card.getAttribute('data-title').toLowerCase();
+                const category = card.getAttribute('data-category').toLowerCase();
+                card.style.display = (title.includes(keyword) || category.includes(keyword)) ? 'block' : 'none';
+            });
+        });
+
+        // 5. Love Button + Floating Hearts Animation
+        const likeBtns = document.querySelectorAll('.like-btn');
+        likeBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                btn.classList.toggle('liked');
+                const isLiked = btn.classList.contains('liked');
+                btn.textContent = isLiked ? '♥' : '♡';
+                if (isLiked) spawnFloatingHearts(btn);
+            });
+        });
+
+        function spawnFloatingHearts(targetBtn) {
+            const rect = targetBtn.getBoundingClientRect();
+            const symbols = ['❤️', '💖', '💕', '💗'];
+            for (let i = 0; i < 6; i++) {
+                const heart = document.createElement('span');
+                heart.className = 'floating-heart';
+                heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                const offsetX = (Math.random() - 0.5) * 44;
+                heart.style.left = `${rect.left + rect.width / 2 + offsetX}px`;
+                heart.style.top = `${rect.top}px`;
+                heart.style.animationDelay = `${i * 0.06}s`;
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 1100);
+            }
+        }
+
+        // 6. Photo Lightbox Fullscreen
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        photoCards.forEach(card => {
+            card.addEventListener('click', () => {
+                lightboxImg.src = card.querySelector('img').src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) lightbox.classList.remove('active');
+        });
+
+        // 7. Surprise Message Modal (Bisa dibuka dari tombol profil & navbar Message)
+        const surpriseBtn = document.getElementById('surprise-btn');
+        const navMsgBtn = document.getElementById('nav-message-btn');
+        const surpriseModal = document.getElementById('surprise-modal');
+        const surpriseClose = document.getElementById('surprise-close');
+
+        surpriseBtn.addEventListener('click', () => surpriseModal.classList.add('active'));
+        navMsgBtn.addEventListener('click', () => surpriseModal.classList.add('active'));
+        surpriseClose.addEventListener('click', () => surpriseModal.classList.remove('active'));
+        surpriseModal.addEventListener('click', (e) => {
+            if (e.target === surpriseModal) surpriseModal.classList.remove('active');
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                lightbox.classList.remove('active');
+                surpriseModal.classList.remove('active');
+            }
+        });
+
+        // =========================================
+        // 8. MUSIC PLAYER & PLAYLIST 5 LAGU
+        // =========================================
+        const songs = [
+            { title: "Andai Aku Bisa", artist: "Chrisye", src: "lagu1.mp3", cover: "cover1.jpg" },
+            { title: "Hitam Putih", artist: "Fourtwnty", src: "lagu2.mp3", cover: "cover2.jpg" },
+            { title: "Dengan Hati", artist: "Lyla", src: "lagu3.mp3", cover: "cover3.jpg" },
+            { title: "It's Only Me", artist: "Kaleb J", src: "lagu4.mp3", cover: "cover4.jpg" },
+            { title: "Love Yourself", artist: "Justin Bieber", src: "lagu5.mp3", cover: "cover5.jpg" }
+        ];
+
+        let currentIndex = 0;
+        let isPlaying = false;
+        let isShuffle = false;
+        let isRepeat = false;
+
+        const audio = document.getElementById('main-audio');
+        const nowPlayingCard = document.getElementById('now-playing-card');
+        const playerCover = document.getElementById('player-cover');
+        const playerTitle = document.getElementById('player-title');
+        const playerArtist = document.getElementById('player-artist');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const shuffleBtn = document.getElementById('shuffle-btn');
+        const repeatBtn = document.getElementById('repeat-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentTimeEl = document.getElementById('current-time');
+        const totalDurationEl = document.getElementById('total-duration');
+        const playlistContainer = document.getElementById('playlist-items');
+        const playerFavBtn = document.getElementById('player-fav-btn');
+
+        // Render 5 Lagu di Playlist Kanan
+        function renderPlaylist() {
+            playlistContainer.innerHTML = '';
+            songs.forEach((song, index) => {
+                const item = document.createElement('div');
+                item.className = `playlist-item ${index === currentIndex ? 'active' : ''}`;
+                item.innerHTML = `
+                    <img src="${song.cover}" alt="${song.title}" class="pl-thumb">
+                    <div class="pl-info">
+                        <h5>${song.title}</h5>
+                        <span>${song.artist}</span>
+                    </div>
+                    <div class="pl-eq ${index === currentIndex && isPlaying ? 'playing' : ''}">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                `;
+                item.addEventListener('click', () => {
+                    selectSong(index, true);
+                });
+                playlistContainer.appendChild(item);
+            });
+        }
+
+        // Pilih lagu -> Efek membesar di kartu tengah
+        function selectSong(index, autoPlay = false) {
+            currentIndex = index;
+            const song = songs[currentIndex];
+
+            // Efek animasi pop/membesar pada kartu pemutar utama
+            nowPlayingCard.classList.remove('pop-zoom');
+            void nowPlayingCard.offsetWidth; // trigger reflow
+            nowPlayingCard.classList.add('pop-zoom');
+
+            playerCover.src = song.cover;
+            playerTitle.textContent = song.title;
+            playerArtist.textContent = song.artist;
+            audio.src = song.src;
+
+            if (autoPlay) {
+                audio.play();
+                isPlaying = true;
+                playPauseBtn.textContent = '⏸';
+            }
+            renderPlaylist();
+        }
+
+        // Tombol Play / Pause Utama
+        playPauseBtn.addEventListener('click', () => {
+            if (!audio.src) {
+                selectSong(0, true);
+                return;
+            }
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                playPauseBtn.textContent = '▶';
+            } else {
+                audio.play();
+                isPlaying = true;
+                playPauseBtn.textContent = '⏸';
+            }
+            renderPlaylist();
+        });
+
+        // Tombol Prev & Next
+        prevBtn.addEventListener('click', () => {
+            const prevIdx = (currentIndex - 1 + songs.length) % songs.length;
+            selectSong(prevIdx, true);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (isShuffle) {
+                const randIdx = Math.floor(Math.random() * songs.length);
+                selectSong(randIdx, true);
+            } else {
+                const nextIdx = (currentIndex + 1) % songs.length;
+                selectSong(nextIdx, true);
+            }
+        });
+
+        // Shuffle & Repeat
+        shuffleBtn.addEventListener('click', () => {
+            isShuffle = !isShuffle;
+            shuffleBtn.classList.toggle('active-mode', isShuffle);
+        });
+
+        repeatBtn.addEventListener('click', () => {
+            isRepeat = !isRepeat;
+            audio.loop = isRepeat;
+            repeatBtn.classList.toggle('active-mode', isRepeat);
+        });
+
+        // Update Progress Bar & Waktu
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration) {
+                const percent = (audio.currentTime / audio.duration) * 100;
+                progressBar.value = percent;
+                currentTimeEl.textContent = formatTime(audio.currentTime);
+                totalDurationEl.textContent = formatTime(audio.duration);
+            }
+        });
+
+        progressBar.addEventListener('input', () => {
+            if (audio.duration) {
+                audio.currentTime = (progressBar.value / 100) * audio.duration;
+            }
+        });
+
+        // Otomatis lanjut lagu berikutnya saat selesai
+        audio.addEventListener('ended', () => {
+            if (!isRepeat) {
+                nextBtn.click();
+            }
+        });
+
+        // Tombol Love pada Pemutar Utama
+        playerFavBtn.addEventListener('click', () => {
+            playerFavBtn.classList.toggle('liked');
+            playerFavBtn.textContent = playerFavBtn.classList.contains('liked') ? '♥' : '♡';
+            if (playerFavBtn.classList.contains('liked')) {
+                spawnFloatingHearts(playerFavBtn);
+            }
+        });
+
+        function formatTime(sec) {
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+        // Inisialisasi lagu pertama saat halaman dimuat
+        selectSong(0, false);
+    </script>
+
+</body>
+</html>
